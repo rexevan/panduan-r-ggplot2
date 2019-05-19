@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bab 2 Paket ggplot2 | Panduan Pemasangan dan Penggunaan R dan ggplot2</title>
+  <meta name="description" content="Panduan menggunakan hal-hal dasar R dan ggplot2">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Bab 2 Paket ggplot2 | Panduan Pemasangan dan Penggunaan R dan ggplot2" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Panduan menggunakan hal-hal dasar R dan ggplot2" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bab 2 Paket ggplot2 | Panduan Pemasangan dan Penggunaan R dan ggplot2" />
+  
+  <meta name="twitter:description" content="Panduan menggunakan hal-hal dasar R dan ggplot2" />
+  
+
+<meta name="author" content="Wihelmus Wedo">
+
+
+<meta name="date" content="2019-05-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="R.html">
+<link rel="next" href="tidyverse.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Source+Serif+Pro');
+</style>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Wihelmus Wedo</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Kata Pengantar</a></li>
+<li class="chapter" data-level="1" data-path="R.html"><a href="R.html"><i class="fa fa-check"></i><b>1</b> Bahasa Pemrograman R</a><ul>
+<li class="chapter" data-level="1.1" data-path="R.html"><a href="R.html#apa-itu-r"><i class="fa fa-check"></i><b>1.1</b> Apa itu R?</a></li>
+<li class="chapter" data-level="1.2" data-path="R.html"><a href="R.html#pemasangan-r"><i class="fa fa-check"></i><b>1.2</b> Pemasangan R</a><ul>
+<li class="chapter" data-level="" data-path="R.html"><a href="R.html#windows-10"><i class="fa fa-check"></i>Windows 10</a></li>
+<li class="chapter" data-level="" data-path="R.html"><a href="R.html#ubuntu-18.04"><i class="fa fa-check"></i>Ubuntu 18.04</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="R.html"><a href="R.html#penggunaan-r"><i class="fa fa-check"></i><b>1.3</b> Penggunaan R</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="R.html"><a href="R.html#kalkulator"><i class="fa fa-check"></i><b>1.3.1</b> Kalkulator</a></li>
+<li class="chapter" data-level="1.3.2" data-path="R.html"><a href="R.html#menyimpan-objek-dengan--"><i class="fa fa-check"></i><b>1.3.2</b> Menyimpan objek dengan <code>&lt;-</code></a></li>
+<li class="chapter" data-level="1.3.3" data-path="R.html"><a href="R.html#string"><i class="fa fa-check"></i><b>1.3.3</b> string</a></li>
+<li class="chapter" data-level="1.3.4" data-path="R.html"><a href="R.html#vektor"><i class="fa fa-check"></i><b>1.3.4</b> Vektor</a></li>
+<li class="chapter" data-level="1.3.5" data-path="R.html"><a href="R.html#tabel-atau-data-frame"><i class="fa fa-check"></i><b>1.3.5</b> Tabel atau <em>data frame</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>2</b> Paket ggplot2</a><ul>
+<li class="chapter" data-level="2.1" data-path="ggplot2.html"><a href="ggplot2.html#apa-itu-ggplot2"><i class="fa fa-check"></i><b>2.1</b> Apa itu ggplot2?</a></li>
+<li class="chapter" data-level="2.2" data-path="ggplot2.html"><a href="ggplot2.html#pemasangan-ggplot2"><i class="fa fa-check"></i><b>2.2</b> Pemasangan <code>ggplot2</code></a></li>
+<li class="chapter" data-level="2.3" data-path="ggplot2.html"><a href="ggplot2.html#penggunaan-ggplot2"><i class="fa fa-check"></i><b>2.3</b> Penggunaan ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> Tidyverse</a><ul>
+<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#apa-itu-tidyverse"><i class="fa fa-check"></i><b>3.1</b> Apa itu tidyverse?</a></li>
+<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#install-tidyverse"><i class="fa fa-check"></i><b>3.2</b> Install tidyverse</a></li>
+<li class="chapter" data-level="3.3" data-path="tidyverse.html"><a href="tidyverse.html#paket-inti-tidyverse"><i class="fa fa-check"></i><b>3.3</b> Paket inti Tidyverse</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="tidyverse.html"><a href="tidyverse.html#readr-dan-tibble"><i class="fa fa-check"></i><b>3.3.1</b> <code>readr</code> dan <code>tibble</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="tidyverse.html"><a href="tidyverse.html#tidyr"><i class="fa fa-check"></i><b>3.3.2</b> <code>tidyr</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="tidyverse.html"><a href="tidyverse.html#dplyr-dan"><i class="fa fa-check"></i><b>3.3.3</b> <code>dplyr</code> dan <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="3.3.4" data-path="tidyverse.html"><a href="tidyverse.html#stringr-dan-forcats"><i class="fa fa-check"></i><b>3.3.4</b> <code>stringr</code> dan <code>forcats</code></a></li>
+<li class="chapter" data-level="3.3.5" data-path="tidyverse.html"><a href="tidyverse.html#purrr"><i class="fa fa-check"></i><b>3.3.5</b> <code>purrr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="tidyverse.html"><a href="tidyverse.html#sumber-ilmu-lainnya"><i class="fa fa-check"></i><b>3.4</b> Sumber ilmu lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>4</b> Project</a></li>
+<li class="divider"></li>
+<li><a href="http://git.bps.go.id/eus.wedo/sbd-grafik" target="blank">Kunjungi Repository ini</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Panduan Pemasangan dan Penggunaan R dan ggplot2</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ggplot2" class="section level1">
+<h1><span class="header-section-number">Bab 2</span> Paket ggplot2</h1>
+<div id="apa-itu-ggplot2" class="section level2">
+<h2><span class="header-section-number">2.1</span> Apa itu ggplot2?</h2>
+<p><a href="https://ggplot2.tidyverse.org/">ggplot2</a> adalah paket yang berfokus pada visualisasi statis. <code>ggplot2</code> adalah paket R yang ditulis oleh Hadley Wickham. Bagian <em>gg</em> dari ggplot2 merupakan singkatan untuk <em>Grammar of Graphics</em>, buku oleh Leland Wilkinson. Paket <code>ggplot2</code> banyak digunakan pada bagian visualisasi data.</p>
+<p><code>ggplot2</code> mengaplikasikan suatu sistem pembuatan grafik yang disebut dengan <em>The Grammar of Graphics</em>. Pada sistem ini, gambar dilihat dan dibentuk lapisan demi lapisan. Ada 3 hal yang penting dari <code>ggplot2</code>, antara lain:</p>
+<ol style="list-style-type: decimal">
+<li><em>data</em> dalam bentuk <em>tidy</em>,</li>
+<li><em>aesthetics</em> seperti koordinat x, dan y, <em>shape</em>, <em>color</em>, <em>fill</em>, <em>shape</em>, dan</li>
+<li><em>geoms</em> yaitu objek geometrik seperti <em>point</em>, <em>bar</em>, dan <em>line</em>.</li>
+</ol>
+<p>Pengguna memberikan data, <em>aesthetics</em>, dan jenis <em>geoms</em> dan <code>ggplot2</code> akan mengatur sisanya.</p>
+</div>
+<div id="pemasangan-ggplot2" class="section level2">
+<h2><span class="header-section-number">2.2</span> Pemasangan <code>ggplot2</code></h2>
+<p><code>ggplot2</code> adalah salah satu bagian dari <em>tidyverse</em>, paket R yang berfokus pada analisis data. Memasang <code>tidyverse</code> secara otomatis juga memasang <code>ggplot2</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<p>Namun, Jika pembaca ingin <strong>hanya memasang paket ggplot2</strong>, berikut adalah cara untuk memasang paket <code>ggplot2</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</code></pre></div>
+</div>
+<div id="penggunaan-ggplot2" class="section level2">
+<h2><span class="header-section-number">2.3</span> Penggunaan ggplot2</h2>
+<p>Dalam ggplot2, kita melihat plot atau grafik sebagai kumpulan <strong>lapisan</strong> atau <em>layer</em>. Banyak grafik yang dapat dihasilkan menggunakan ide atau teori ini; <em>scatter plot</em>, <em>bar plot</em>, <em>lolipop chart </em>, <em>line chart</em>, <em>heatmap</em>, <em>map plot</em> dan masih banyak lagi. Selain itu, ggplot2 adalah paket R, sehingga banyak orang membuat paket-paket pendamping ggplot2 untuk menghasilkan lebih banyak jenis plot; <em>Treemap</em>, <em>animation</em>, <em>waffle chart</em>, dan masih banyak lagi.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="co">#diamonds &lt;- diamonds[1:1000,]</span>
+diamonds</code></pre></div>
+<pre><code>## # A tibble: 53,940 x 10
+##    carat cut       color clarity depth table price     x     y     z
+##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 0.23  Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43
+##  2 0.21  Premium   E     SI1      59.8    61   326  3.89  3.84  2.31
+##  3 0.23  Good      E     VS1      56.9    65   327  4.05  4.07  2.31
+##  4 0.290 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63
+##  5 0.31  Good      J     SI2      63.3    58   335  4.34  4.35  2.75
+##  6 0.24  Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48
+##  7 0.24  Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47
+##  8 0.26  Very Good H     SI1      61.9    55   337  4.07  4.11  2.53
+##  9 0.22  Fair      E     VS2      65.1    61   337  3.87  3.78  2.49
+## 10 0.23  Very Good H     VS1      59.4    61   338  4     4.05  2.39
+## # … with 53,930 more rows</code></pre>
+<p>Data <code>diamonds</code> – data <em>built in</em> dari paket ggplot2 – digunakan sebagai contoh. Terdapat beberapa variabel dalam data diamond, diantaranya</p>
+<ul>
+<li><em>carat</em> : berat dari berlian</li>
+<li><em>cut</em> : kualitas potongan</li>
+<li><em>color</em> : Warna berlian, dari J (terburuk) ke D (terbaik)</li>
+<li><em>clarity</em> : Ukuran seberapa jernih suatu berlian</li>
+<li><em>depth</em> : persentase kedalaman</li>
+<li><em>table</em> : lebar dari ujung atas berlian relatif terhadap titik terlebar</li>
+<li><em>price</em> : harga berlian dalam USD.</li>
+<li><em>x</em> : panjang dalam milimeter</li>
+<li><em>y</em> : lebar dalam milimeter</li>
+<li><em>x</em> : kedalaman dalam milimeter</li>
+</ul>
+<p>Informasi lainnya mengendai data <code>diamonds</code> dapat dilihat dengan mengetik <code>?diamonds</code> pada <em>console</em>. Misalkan kita ingin mengetahui sebaran dari harga berlian. Dengan menggunakan informasi yang tersedia, kita dapat mengidentifikasi lapisan <em>data</em>, <em>aesthetics</em>, dan <em>geom</em> untuk gambar yang kita butuhkan.</p>
+<ol style="list-style-type: decimal">
+<li>data : diamonds</li>
+<li>aes : price</li>
+<li>geom : histogram</li>
+</ol>
+<p>Dengan begitu, kita hanya perlu menyuruh R untuk membuat gambar.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ggdiamonds &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds, <span class="kw">aes</span>(<span class="dt">x =</span> price)) <span class="op">+</span>
+<span class="st">        </span><span class="kw">geom_histogram</span>()
+
+ggdiamonds</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="Panduan_files/figure-html/gg-diamonds-1.png" width="672" /></p>
+<p>Pada fungsi <code>aes()</code>, kita memasukkan sumbu x sebab kita hanya memerlukan 1 sumbu. Contoh berikutnya adalah menggunakan 2 sumbu. Misalkan kita ingin melihat pola antara harga (<em>price</em>) dan kualitas potongan dari berlian (<em>cut</em>). Arinyta kita akan membuat <em>scatter plot</em> antara <code>price</code> dan <code>cut</code>. Selama kita dapat mengidentifikasi lapisan yang diperlukan:</p>
+<ol style="list-style-type: decimal">
+<li>data : diamonds</li>
+<li>aes : (x = price, y = cut)</li>
+<li>geom : point</li>
+</ol>
+<p>Akan tetapi, kita juga ingin melihat pola antara harga har dan kualitas potongan, dan juga warna. Oleh karena itu, kita membuatuhkan satu <em>aesthetic</em> lagi pada goem point.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ggprice &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds, <span class="kw">aes</span>(<span class="dt">x =</span> price, <span class="dt">y =</span> carat)) <span class="op">+</span>
+<span class="st">        </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> color))
+
+ggprice</code></pre></div>
+<p><img src="Panduan_files/figure-html/scatter-plot-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="R.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Panduan.pdf", "Panduan.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

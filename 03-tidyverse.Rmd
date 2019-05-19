@@ -1,0 +1,196 @@
+# Tidyverse {#tidyverse}
+
+## Apa itu tidyverse?
+
+Ketika bekerja dengan data di dunia nyata seperti di BPS, paket `ggplot2` saja tidak cukup.
+Paket `ggplot2` membutuhkan *tidy data* sebagai masukan, namun data yang dikumpulkan BPS ataupun data yang berada di dunia nyata tidak selalu berada dalam bentuk tersebut.
+Selain itu, terkadang dibutuhkan proses awal sebelum data divisualisasikan.
+Proses ini dapat berupa agregasi berdasarkan variabel tertentu, penyaringan terhadap kategori tertentu, ataupun menambahkan variabel baru yang berperan dalam proses visualisasi.
+Untuk itu, diperlukan paket-paket lainnya.
+
+Hadley Wichkam dan komunitas R kemudian membuat paket-paket R lainnya yang kemudian disebut sebagai *tidyverse*.
+Tidyverse merupakan koleksi dari paket yang bekerja kriteria *tidy data*.
+Tidyverse dibuat untuk memudahkan proses analisis data, mulai dari memasukkan data (*import data*), melakukan proses perapihan data (*tidy*), melakukan transformasi dan agregasi (*transform*), visualisasi data (*visualization*), melakukan pemodelan (*modelling*), hingga menulis laporan (*reporting*).
+
+## Install tidyverse
+
+Untuk menginstall paket `tidyverse` caranya sama dengan menginstall paket `ggplot2`.
+
+```{r install-tidyverse-2, eval = FALSE}
+install.package("tidyverse")
+```
+
+Memasang `tidyverse` juga akan memasang paket-paket lain yang tergabung dalam ekosistem tidyverse, sehingga waktu unduh dan pasang  akan lebih lama dibandingkan dengan waktu `ggplot2`
+
+## Paket inti Tidyverse
+
+Pada panduan ini penulis akan menjelaskan sedikit informasi mengenai paket-paket inti dari tidyverse.
+Paket-paket ini disebut paket inti atau *core* sebab paket ini juga di *attach* ketika `tidyverse` di *attach*.
+Paket `ggplot2` telah dibahas pada bab sebelumnya sehingga tidak dibahas pada bagian ini.
+
+```{r load-tidyverse}
+library(tidyverse)
+```
+
+### `readr` dan `tibble`
+
+Paket `readr` digunakan dalam proses memasukkan data ke dalam lingkungan R.
+`readr` menyediakan cara yang mudah untuk memasukkan data yang *rectangular* seperti *csv* (*comma separated values*) dan *tsv* (*tab separated values*).
+
+Paket `tibble` mungkin kurang populer dibandingkan paket inti lainnya.
+*Tibble* merupakan pengembangan dari *data frame*.
+Terdapat beberapa penambahan dan pengurangan fitur dari `data.frame` yang dimiliki oleh sebuah `tbl_df` yang dapat membuat pekerjaan lebih mudah.
+Penambahan fitur seperti memberitahu tipe atau *class* dari semua kolom tabel serta pengurangan fitur seperti meniadakan *partial matching* diyakini oleh para pembuat paket untuk membuat pekerjaan analisis data menjadi lebih mudah.
+Tibble juga dapat melakukan hal lain namun hal tersebut jarang penulis gali lebih dalam.
+
+Data yang di*import* menggunakan `readr` akan memiliki kelas `tbl_df`.
+
+### `tidyr`
+
+Paket `tidyr` digunakan dalam proses perapihan data.
+Data rapi atau *tidy data* adalah bentuk data yang memenuhi **semua** kriteria berikut.
+
+1. 1(satu) variabel menempati 1(satu) kolom
+
+2. 1(satu) observasi atau individu menempati 1(satu) baris
+
+3. 1(satu) nilai atau *value* menempati 1(satu) sel.
+
+Data rapi menunjukkan cara yang baku atau standar dalam menyimpan data.
+Standar ini digunakan oleh semua paket dalam ekosistem Tidyverse.
+Terdapat 2 fungsi yang sering digunakan dari paket `tidyr`, yaitu `gather()` dan `spread()`.
+
+### `dplyr` dan `%>%`
+
+Paket `dplyr` adalah salah satu paket terpopuler (selain `ggplot2`) dalam ekosistem tidyverse.
+
+1. `select()` **memilih** variabel/ kolom.
+1. `filter()` **menyaring** tabel berdasarkan suatu kriteria.
+1. `mutate()` **menambah** variabel/kolom yang merupakan fungsi dari variabel/kolom yang sudah ada.
+1. `summarise()` atau `summarize()` **meringkas** tabel.
+1. `arrange()` **mengurut** tabel berdasarkan variabel/kolom.
+
+Semua fungsi di atas digabungkan dengan `group_by()` membuat pengguna dapat menjalankan fungsi di atas *berdasarkan kelompok*.
+Lima fungsi di atas dibuat menggunakan kata kerja atau *verbs* untuk memudahkan pengguna memahami arti dari fungsi-fungsi tersebut.
+Selain lima fungsi di atas ditambah `group_by()`, `dplyr` memiliki operator yang disebut sebagai *foward pipe operator* atau biasanya disingkat menjadi *pipe*.
+Operator ini memiliki lambang `%>%` dan dibaca *kemudian* atau *lalu*.
+
+Pada umumnya, kode dibaca dari dalam ke luar (*inside out*).
+Namun, dengan menggunakan `%>%`, kode dapat dibaca dari kiri ke kanan.
+Hal ini akan mempermudah seseorang untuk mengerti apa yang sedang terjadi sehingga lebih mudah dimengerti.
+
+Sebagai ilustrasi, perhatikan cerita pendek di bawah ini.
+
+> Hatori adalah seorang ninja.
+>
+> Ia mendaki gunung, kemudian menuruni lembah, dan akhirnya mengarungi samudra.
+
+Berdasarkan cerita pendek di atas, pada umumnya **script** akan ditulis dalam satu baris, seperti berikut
+
+```{r hatori-lurus, eval=FALSE}
+hatori <- as_ninja()
+
+mengarungi(menuruni(mendaki(hatori, gunung), lembah), samudra)
+```
+
+atau dalam bentuk yang agak condong ke dalam jika menggunakan *indent*.
+
+```{r hatori-indent, eval=FALSE}
+hatori <- as_ninja()
+
+mengarungi(
+  menuruni(
+    mendaki(hatori, gunung),
+    lembah
+  ),
+  samudra
+)
+```
+
+Untuk membaca *script* di atas, diperlukan waktu yang relatif lebih banyak dibandingkan ketika penulisan *script* menggunakan `%>%`.
+Berikut adalah *script* yang sama jika ditulis menggunakan `%>%`.
+
+```{r hatori-pipe, eval=FALSE}
+hatori <- as_ninja()
+
+hatori %>%
+  mendaki(gunung) %>%
+  menuruni(lembah) %>%
+  mengarungi(samudra)
+```
+
+### `stringr` dan `forcats`
+
+Paket `stringr` -- sesuai namanya -- digunakan ketika berurusan dengan *string* dalam proses analisis data.
+Di dalam dunia R, *string* juga dikenal dengan istilah *character*.
+Fungsi-fungsi dari paket `stringr` memiliki awalan `str_` pada nama.
+
+*forcats* adalah sebuah anagram untuk *factors*.
+Sesuai dengan namanya, `forcats` digunakan ketika berurusan *factors*.
+Mirip dengan `stringr`, fungsi-fungsi dalam paket ini memiliki awalan `fct_`.
+
+### `purrr`
+
+Paket `purrr` dapat dikatakan memiliki tingkat kesulitan yang lebih tinggi dibandingkan dengan paket inti lainnya.
+`purrr` digunakan untuk mengimplementasikan *functional programming*.
+
+## Sumber ilmu lainnya
+
+Tidyverse merupakan paket R yang luas sehingga panduan ini tidak cukup menjelaskan semua paket di dalam ekosistem.
+Panduan ini juga hanya menjelaskan sedikit informasi dari paket inti dari tidyverse.
+Masih banyak informasi dari paket inti tidyverse yang penulis tidak bahas dalam dokumen ini, terlebih mengenai paket-paket lain yang bukan paket inti.
+Oleh karena itu, penulis berharap pembaca dapat mencari dan membaca sendiri sumber-sumber lain mengenai tidyverse dan analisis data menggunakan R.
+
+**Tidyverse.org**
+
+Tidyverse.org adalah situs yang khusus menjelaskan paket inti dari tidyverse.
+Ini adlaah sumber nomor 1 bagi penulis ketika mengalami masalah dengan paket inti tidyverse.
+
+**stackoverflow.com**
+
+StackOverFlow adalah sebuah forum dunia maya yang pada umumnya dihuni oleh *developer*.
+Dapat dibilang StackOverFlow ada forum tanya jawab seputar hal-hal *programming*.
+Banyak pertanyaan mengenai R dan Rstudio yang ditanyakan di stackoverflow.
+
+**community.rstudio.com**,
+
+Mirip seperti StackOverFlow, ini ada tempat bertanya khusus mengenai R dan Rstudio.
+Forum ini dibuat oleh pihak Rstudio.
+
+**youtube.co.id**
+
+YouTube adalah situs berbagi video terbesar saat ini.
+Terdapat banyak video tutorial maupun presentasi mengenai paket-paket dalam tidyverse.
+
+**#rstat**
+
+Pengguna R memiliki komunitas di twitter.
+Komunitas ini biasanya menggunakan tagar #rstat memposting sesuatu tentang R.
+
+**r/rstats**
+
+Seperti di twitter, komunitas R juga terdapat di reddit.
+Komunitas R di reddit berkumpul di *subreddit* r/rstats.
+
+**Google**
+
+Google adalah *search engine* yang paling besar.
+Mencari hal-hal mengenai paket tidyverse merupakan hal mudah dengan menggunakan google.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

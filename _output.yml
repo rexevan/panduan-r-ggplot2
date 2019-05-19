@@ -1,0 +1,18 @@
+bookdown::gitbook:
+  includes:
+    in_header: header.html
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">Wihelmus Wedo</a></li>
+      after: |
+        <li><a href="http://git.bps.go.id/eus.wedo/sbd-grafik" target="blank">Kunjungi Repository ini</a></li>
+    download: ["pdf", "epub"]
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default

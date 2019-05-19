@@ -1,0 +1,51 @@
+---
+title: "Panduan Pemasangan dan Penggunaan R dan ggplot2"
+author: "Wihelmus Wedo"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+template: null
+description: "Panduan menggunakan hal-hal dasar R dan ggplot2"
+---
+
+# Kata Pengantar {-}
+
+```{r setup, include=FALSE}
+library(knitr)
+library(here)
+opts_chunk$set(echo = TRUE)
+
+
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+
+```
+
+Selama ini penulis mengamati bahwa grafik dalam publikasi BPS biasanya dibuat dalam perangkat lunak *Microsoft Office Excel* (MS Excel).
+Aplikasi ini telah banyak digunakan oleh banyak orang dan berbasis *Graphical User Interface*.
+Penulis merasa bahwa grafik yang dibuat dapat ditingkatkan efektivitas dan efisiensinya.
+Penulis -- seseorang yang telah belajar tentang R sewaktu kuliah -- ingin mengaplikasikan R dan ggplot2 pada pekerjaannya.
+Penulis menyadari bahwa untuk membuat grafik yang efektif, seseorang bisa saja menggunakan program seperti *Microsoft Office Excel*. Akan tetapi terdapat beberapa hambatan ketika menggunakan 3, diantaranya
+
+1. Menghabiskan waktu relatif lama untuk membuat grafik yang efektif
+2. Sejatinya, seseorang harus membayar untuk menggunakan MS Excel.
+3. Proses yang sama perlu dilakukan berkali-kali seiring dengan pemutakhiran data.
+4. Untuk membuka file Excel diperlukan MS Excel.
+
+Penulis merasa bahwa hal-hal tersebut dapat diminimalisasi dengan menggunakan R dan ggplot2.
+R sebagai sebuah *Free and Open Source Software* (FOSS) bersifat *gratis* dan *bebas* sehingga siapa pun dapat dengan mudah mengunduh, menggunakan, dan mengembangkan perangkat lunak tersebut.
+Selain itu, *Script* R hanyalah berbentuk sebuah *text file*.
+Hal tersebut memudahkan pengguna untuk melakukan *copy-paste* dan isinya dapat dibaca oleh *text editor* seperti Notepad, Neovim, Gedit, dll.
+Kemudahan untuk membuka dan membaca *script* R juga memiliki manfaat agar orang lain dapat mengetahui proses pengerjaan suatu data dari awal dan akhir.
+Hal ini mendorong terbentuknya *reproducible analysis*.
+
+
+Penulis dalam dokumen ini hanya sekadar membagi informasi mengenai dasar-dasar penggunaan R, dan ggplot2.
+Dokumen ini **tidak menjelaskan semua** hal mengenai R dan ggplot2 kepada pembaca.
+Akhir kata, penulis ingin mengucapkan terima kasih kepada pembaca yang membaca dokumen ini.
+Selamat membaca!
+

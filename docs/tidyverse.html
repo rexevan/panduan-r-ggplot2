@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bab 3 Tidyverse | Panduan Pemasangan dan Penggunaan R dan ggplot2</title>
+  <meta name="description" content="Panduan menggunakan hal-hal dasar R dan ggplot2">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Bab 3 Tidyverse | Panduan Pemasangan dan Penggunaan R dan ggplot2" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Panduan menggunakan hal-hal dasar R dan ggplot2" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bab 3 Tidyverse | Panduan Pemasangan dan Penggunaan R dan ggplot2" />
+  
+  <meta name="twitter:description" content="Panduan menggunakan hal-hal dasar R dan ggplot2" />
+  
+
+<meta name="author" content="Wihelmus Wedo">
+
+
+<meta name="date" content="2019-05-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="ggplot2.html">
+<link rel="next" href="project.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Source+Serif+Pro');
+</style>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Wihelmus Wedo</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Kata Pengantar</a></li>
+<li class="chapter" data-level="1" data-path="R.html"><a href="R.html"><i class="fa fa-check"></i><b>1</b> Bahasa Pemrograman R</a><ul>
+<li class="chapter" data-level="1.1" data-path="R.html"><a href="R.html#apa-itu-r"><i class="fa fa-check"></i><b>1.1</b> Apa itu R?</a></li>
+<li class="chapter" data-level="1.2" data-path="R.html"><a href="R.html#pemasangan-r"><i class="fa fa-check"></i><b>1.2</b> Pemasangan R</a><ul>
+<li class="chapter" data-level="" data-path="R.html"><a href="R.html#windows-10"><i class="fa fa-check"></i>Windows 10</a></li>
+<li class="chapter" data-level="" data-path="R.html"><a href="R.html#ubuntu-18.04"><i class="fa fa-check"></i>Ubuntu 18.04</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="R.html"><a href="R.html#penggunaan-r"><i class="fa fa-check"></i><b>1.3</b> Penggunaan R</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="R.html"><a href="R.html#kalkulator"><i class="fa fa-check"></i><b>1.3.1</b> Kalkulator</a></li>
+<li class="chapter" data-level="1.3.2" data-path="R.html"><a href="R.html#menyimpan-objek-dengan--"><i class="fa fa-check"></i><b>1.3.2</b> Menyimpan objek dengan <code>&lt;-</code></a></li>
+<li class="chapter" data-level="1.3.3" data-path="R.html"><a href="R.html#string"><i class="fa fa-check"></i><b>1.3.3</b> string</a></li>
+<li class="chapter" data-level="1.3.4" data-path="R.html"><a href="R.html#vektor"><i class="fa fa-check"></i><b>1.3.4</b> Vektor</a></li>
+<li class="chapter" data-level="1.3.5" data-path="R.html"><a href="R.html#tabel-atau-data-frame"><i class="fa fa-check"></i><b>1.3.5</b> Tabel atau <em>data frame</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>2</b> Paket ggplot2</a><ul>
+<li class="chapter" data-level="2.1" data-path="ggplot2.html"><a href="ggplot2.html#apa-itu-ggplot2"><i class="fa fa-check"></i><b>2.1</b> Apa itu ggplot2?</a></li>
+<li class="chapter" data-level="2.2" data-path="ggplot2.html"><a href="ggplot2.html#pemasangan-ggplot2"><i class="fa fa-check"></i><b>2.2</b> Pemasangan <code>ggplot2</code></a></li>
+<li class="chapter" data-level="2.3" data-path="ggplot2.html"><a href="ggplot2.html#penggunaan-ggplot2"><i class="fa fa-check"></i><b>2.3</b> Penggunaan ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> Tidyverse</a><ul>
+<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#apa-itu-tidyverse"><i class="fa fa-check"></i><b>3.1</b> Apa itu tidyverse?</a></li>
+<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#install-tidyverse"><i class="fa fa-check"></i><b>3.2</b> Install tidyverse</a></li>
+<li class="chapter" data-level="3.3" data-path="tidyverse.html"><a href="tidyverse.html#paket-inti-tidyverse"><i class="fa fa-check"></i><b>3.3</b> Paket inti Tidyverse</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="tidyverse.html"><a href="tidyverse.html#readr-dan-tibble"><i class="fa fa-check"></i><b>3.3.1</b> <code>readr</code> dan <code>tibble</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="tidyverse.html"><a href="tidyverse.html#tidyr"><i class="fa fa-check"></i><b>3.3.2</b> <code>tidyr</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="tidyverse.html"><a href="tidyverse.html#dplyr-dan"><i class="fa fa-check"></i><b>3.3.3</b> <code>dplyr</code> dan <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="3.3.4" data-path="tidyverse.html"><a href="tidyverse.html#stringr-dan-forcats"><i class="fa fa-check"></i><b>3.3.4</b> <code>stringr</code> dan <code>forcats</code></a></li>
+<li class="chapter" data-level="3.3.5" data-path="tidyverse.html"><a href="tidyverse.html#purrr"><i class="fa fa-check"></i><b>3.3.5</b> <code>purrr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="tidyverse.html"><a href="tidyverse.html#sumber-ilmu-lainnya"><i class="fa fa-check"></i><b>3.4</b> Sumber ilmu lainnya</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>4</b> Project</a></li>
+<li class="divider"></li>
+<li><a href="http://git.bps.go.id/eus.wedo/sbd-grafik" target="blank">Kunjungi Repository ini</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Panduan Pemasangan dan Penggunaan R dan ggplot2</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tidyverse" class="section level1">
+<h1><span class="header-section-number">Bab 3</span> Tidyverse</h1>
+<div id="apa-itu-tidyverse" class="section level2">
+<h2><span class="header-section-number">3.1</span> Apa itu tidyverse?</h2>
+<p>Ketika bekerja dengan data di dunia nyata seperti di BPS, paket <code>ggplot2</code> saja tidak cukup. Paket <code>ggplot2</code> membutuhkan <em>tidy data</em> sebagai masukan, namun data yang dikumpulkan BPS ataupun data yang berada di dunia nyata tidak selalu berada dalam bentuk tersebut. Selain itu, terkadang dibutuhkan proses awal sebelum data divisualisasikan. Proses ini dapat berupa agregasi berdasarkan variabel tertentu, penyaringan terhadap kategori tertentu, ataupun menambahkan variabel baru yang berperan dalam proses visualisasi. Untuk itu, diperlukan paket-paket lainnya.</p>
+<p>Hadley Wichkam dan komunitas R kemudian membuat paket-paket R lainnya yang kemudian disebut sebagai <em>tidyverse</em>. Tidyverse merupakan koleksi dari paket yang bekerja kriteria <em>tidy data</em>. Tidyverse dibuat untuk memudahkan proses analisis data, mulai dari memasukkan data (<em>import data</em>), melakukan proses perapihan data (<em>tidy</em>), melakukan transformasi dan agregasi (<em>transform</em>), visualisasi data (<em>visualization</em>), melakukan pemodelan (<em>modelling</em>), hingga menulis laporan (<em>reporting</em>).</p>
+</div>
+<div id="install-tidyverse" class="section level2">
+<h2><span class="header-section-number">3.2</span> Install tidyverse</h2>
+<p>Untuk menginstall paket <code>tidyverse</code> caranya sama dengan menginstall paket <code>ggplot2</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.package</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<p>Memasang <code>tidyverse</code> juga akan memasang paket-paket lain yang tergabung dalam ekosistem tidyverse, sehingga waktu unduh dan pasang akan lebih lama dibandingkan dengan waktu <code>ggplot2</code></p>
+</div>
+<div id="paket-inti-tidyverse" class="section level2">
+<h2><span class="header-section-number">3.3</span> Paket inti Tidyverse</h2>
+<p>Pada panduan ini penulis akan menjelaskan sedikit informasi mengenai paket-paket inti dari tidyverse. Paket-paket ini disebut paket inti atau <em>core</em> sebab paket ini juga di <em>attach</em> ketika <code>tidyverse</code> di <em>attach</em>. Paket ggplot2 telah dibahas pada bab sebelumnya sehingga tidak dibahas pada bagian ini.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<div id="readr-dan-tibble" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> <code>readr</code> dan <code>tibble</code></h3>
+<p>Paket <code>readr</code> digunakan dalam proses memasukkan data ke dalam lingkungan R. <code>readr</code> menyediakan cara yang mudah untuk memasukkan data yang <em>rectangular</em> seperti <em>csv</em> (<em>comma separated values</em>) dan <em>tsv</em> (<em>tab separated values</em>).</p>
+<p>Paket <code>tibble</code> mungkin kurang populer dibandingkan paket inti lainnya. <em>Tibble</em> merupakan pengembangan dari <em>data frame</em>. Terdapat beberapa penambahan dan pengurangan fitur dari <code>data.frame</code> yang dimiliki oleh sebuah <code>tbl_df</code> yang dapat membuat pekerjaan lebih mudah. Penambahan fitur seperti memberitahu tipe atau <em>class</em> dari semua kolom tabel serta pengurangan fitur seperti meniadakan <em>partial matching</em> diyakini oleh para pembuat paket untuk membuat pekerjaan analisis data menjadi lebih mudah. Tibble juga dapat melakukan hal lain namun hal tersebut jarang penulis gali lebih dalam.</p>
+<p>Data yang di<em>import</em> menggunakan <code>readr</code> akan memiliki kelas <code>tbl_df</code>.</p>
+</div>
+<div id="tidyr" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> <code>tidyr</code></h3>
+<p>Paket <code>tidyr</code> digunakan dalam proses perapihan data. Data rapi atau <em>tidy data</em> adalah bentuk data yang memenuhi <strong>semua</strong> kriteria berikut.</p>
+<ol style="list-style-type: decimal">
+<li><p>1(satu) variabel menempati 1(satu) kolom</p></li>
+<li><p>1(satu) observasi atau individu menempati 1(satu) baris</p></li>
+<li><p>1(satu) nilai atau <em>value</em> menempati 1(satu) sel.</p></li>
+</ol>
+<p>Data rapi menunjukkan cara yang baku atau standar dalam menyimpan data. Standar ini digunakan oleh semua paket dalam ekosistem Tidyverse. Terdapat 2 fungsi yang sering digunakan dari paket <code>tidyr</code>, yaitu <code>gather()</code> dan <code>spread()</code>.</p>
+</div>
+<div id="dplyr-dan" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> <code>dplyr</code> dan <code>%&gt;%</code></h3>
+<p>Paket <code>dplyr</code> adalah salah satu paket terpopuler (selain <code>ggplot2</code>) dalam ekosistem tidyverse.</p>
+<ol style="list-style-type: decimal">
+<li><code>select()</code> <strong>memilih</strong> variabel/ kolom.</li>
+<li><code>filter()</code> <strong>menyaring</strong> tabel berdasarkan suatu kriteria.</li>
+<li><code>mutate()</code> <strong>menambah</strong> variabel/kolom yang merupakan fungsi dari variabel/kolom yang sudah ada.</li>
+<li><code>summarise()</code> atau <code>summarize()</code> <strong>meringkas</strong> tabel.</li>
+<li><code>arrange()</code> <strong>mengurut</strong> tabel berdasarkan variabel/kolom.</li>
+</ol>
+<p>Semua fungsi di atas digabungkan dengan <code>group_by()</code> membuat pengguna dapat menjalankan fungsi di atas <em>berdasarkan kelompok</em>. Lima fungsi di atas dibuat menggunakan kata kerja atau <em>verbs</em> untuk memudahkan pengguna memahami arti dari fungsi-fungsi tersebut. Selain lima fungsi di atas ditambah <code>group_by()</code>, <code>dplyr</code> memiliki operator yang disebut sebagai <em>foward pipe operator</em> atau biasanya disingkat menjadi <em>pipe</em>. Operator ini memiliki lambang <code>%&gt;%</code> dan dibaca <em>kemudian</em> atau <em>lalu</em>.</p>
+<p>Pada umumnya, kode dibaca dari dalam ke luar (<em>inside out</em>). Namun, dengan menggunakan <code>%&gt;%</code>, kode dapat dibaca dari kiri ke kanan. Hal ini akan mempermudah seseorang untuk mengerti apa yang sedang terjadi sehingga lebih mudah dimengerti.</p>
+<p>Sebagai ilustrasi, perhatikan cerita pendek di bawah ini.</p>
+<blockquote>
+<p>Hatori adalah seorang ninja.</p>
+<p>Ia mendaki gunung, kemudian menuruni lembah, dan akhirnya mengarungi samudra.</p>
+</blockquote>
+<p>Berdasarkan cerita pendek di atas, pada umumnya <strong>script</strong> akan ditulis dalam satu baris, seperti berikut</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hatori &lt;-<span class="st"> </span><span class="kw">as_ninja</span>()
+
+<span class="kw">mengarungi</span>(<span class="kw">menuruni</span>(<span class="kw">mendaki</span>(hatori, gunung), lembah), samudra)</code></pre></div>
+<p>atau dalam bentuk yang agak condong ke dalam jika menggunakan <em>indent</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hatori &lt;-<span class="st"> </span><span class="kw">as_ninja</span>()
+
+<span class="kw">mengarungi</span>(
+  <span class="kw">menuruni</span>(
+    <span class="kw">mendaki</span>(hatori, gunung),
+    lembah
+  ),
+  samudra
+)</code></pre></div>
+<p>Untuk membaca <em>script</em> di atas, diperlukan waktu yang relatif lebih banyak dibandingkan ketika penulisan <em>script</em> menggunakan <code>%&gt;%</code>. Berikut adalah <em>script</em> yang sama jika ditulis menggunakan <code>%&gt;%</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hatori &lt;-<span class="st"> </span><span class="kw">as_ninja</span>()
+
+hatori <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mendaki</span>(gunung) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">menuruni</span>(lembah) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mengarungi</span>(samudra)</code></pre></div>
+</div>
+<div id="stringr-dan-forcats" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> <code>stringr</code> dan <code>forcats</code></h3>
+<p>Paket <code>stringr</code> – sesuai namanya – digunakan ketika berurusan dengan <em>string</em> dalam proses analisis data. Di dalam dunia R, <em>string</em> juga dikenal dengan istilah <em>character</em>. Fungsi-fungsi dari paket <code>stringr</code> memiliki awalan <code>str_</code> pada nama.</p>
+<p><em>forcats</em> adalah sebuah anagram untuk <em>factors</em>. Sesuai dengan namanya, <code>forcats</code> digunakan ketika berurusan <em>factors</em>. Mirip dengan <code>stringr</code>, fungsi-fungsi dalam paket ini memiliki awalan <code>fct_</code>.</p>
+</div>
+<div id="purrr" class="section level3">
+<h3><span class="header-section-number">3.3.5</span> <code>purrr</code></h3>
+<p>Paket <code>purrr</code> dapat dikatakan memiliki tingkat kesulitan yang lebih tinggi dibandingkan dengan paket inti lainnya. <code>purrr</code> digunakan untuk mengimplementasikan <em>functional programming</em>.</p>
+</div>
+</div>
+<div id="sumber-ilmu-lainnya" class="section level2">
+<h2><span class="header-section-number">3.4</span> Sumber ilmu lainnya</h2>
+<p>Tidyverse merupakan paket R yang luas sehingga panduan ini tidak cukup menjelaskan semua paket di dalam ekosistem. Panduan ini juga hanya menjelaskan sedikit informasi dari paket inti dari tidyverse. Masih banyak informasi dari paket inti tidyverse yang penulis tidak bahas dalam dokumen ini, terlebih mengenai paket-paket lain yang bukan paket inti. Oleh karena itu, penulis berharap pembaca dapat mencari dan membaca sendiri sumber-sumber lain mengenai tidyverse dan analisis data menggunakan R.</p>
+<p><strong>Tidyverse.org</strong></p>
+<p>Tidyverse.org adalah situs yang khusus menjelaskan paket inti dari tidyverse. Ini adlaah sumber nomor 1 bagi penulis ketika mengalami masalah dengan paket inti tidyverse.</p>
+<p><strong>stackoverflow.com</strong></p>
+<p>StackOverFlow adalah sebuah forum dunia maya yang pada umumnya dihuni oleh <em>developer</em>. Dapat dibilang StackOverFlow ada forum tanya jawab seputar hal-hal <em>programming</em>. Banyak pertanyaan mengenai R dan Rstudio yang ditanyakan di stackoverflow.</p>
+<p><strong>community.rstudio.com</strong>,</p>
+<p>Mirip seperti StackOverFlow, ini ada tempat bertanya khusus mengenai R dan Rstudio. Forum ini dibuat oleh pihak Rstudio.</p>
+<p><strong>youtube.co.id</strong></p>
+<p>YouTube adalah situs berbagi video terbesar saat ini. Terdapat banyak video tutorial maupun presentasi mengenai paket-paket dalam tidyverse.</p>
+<p><strong>#rstat</strong></p>
+<p>Pengguna R memiliki komunitas di twitter. Komunitas ini biasanya menggunakan tagar #rstat memposting sesuatu tentang R.</p>
+<p><strong>r/rstats</strong></p>
+<p>Seperti di twitter, komunitas R juga terdapat di reddit. Komunitas R di reddit berkumpul di <em>subreddit</em> r/rstats.</p>
+<p><strong>Google</strong></p>
+<p>Google adalah <em>search engine</em> yang paling besar. Mencari hal-hal mengenai paket tidyverse merupakan hal mudah dengan menggunakan google.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ggplot2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="project.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Panduan.pdf", "Panduan.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

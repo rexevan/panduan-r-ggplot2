@@ -1,0 +1,112 @@
+# Paket ggplot2 {#ggplot2}
+
+## Apa itu ggplot2?
+
+[ggplot2](https://ggplot2.tidyverse.org/) adalah paket yang berfokus pada visualisasi statis.
+`ggplot2` adalah paket R yang ditulis oleh Hadley Wickham.
+Bagian *gg* dari ggplot2 merupakan singkatan untuk *Grammar of Graphics*, buku oleh Leland Wilkinson.
+Paket `ggplot2` banyak digunakan pada bagian visualisasi data.
+
+`ggplot2` mengaplikasikan suatu sistem pembuatan grafik yang disebut dengan *The Grammar of Graphics*.
+Pada sistem ini, gambar dilihat dan dibentuk lapisan demi lapisan. Ada 3 hal yang penting dari `ggplot2`, antara lain:
+
+1. *data* dalam bentuk *tidy*,
+2. *aesthetics* seperti koordinat x, dan y, *shape*, *color*, *fill*, *shape*, dan
+3. *geoms* yaitu objek geometrik seperti *point*, *bar*, dan *line*.
+
+Pengguna memberikan data, *aesthetics*, dan jenis *geoms* dan `ggplot2` akan mengatur sisanya.
+
+## Pemasangan `ggplot2`
+
+`ggplot2` adalah salah satu bagian dari *tidyverse*, paket R yang berfokus pada analisis data.
+Memasang `tidyverse` secara otomatis juga memasang `ggplot2`.
+
+```{r install-tidyverse, eval = FALSE}
+install.packages("tidyverse")
+```
+
+Namun, Jika pembaca ingin **hanya memasang paket ggplot2**, berikut adalah cara untuk memasang paket `ggplot2`
+
+```{r install-ggplot2, eval = FALSE}
+install.packages("ggplot2")
+```
+
+## Penggunaan ggplot2
+
+Dalam ggplot2, kita melihat plot atau grafik sebagai kumpulan **lapisan** atau *layer*.
+Banyak grafik yang dapat dihasilkan menggunakan ide atau teori ini; *scatter plot*, *bar plot*, *lolipop chart *, *line chart*, *heatmap*, *map plot* dan masih banyak lagi.
+Selain itu, ggplot2 adalah paket R, sehingga banyak orang membuat paket-paket pendamping ggplot2 untuk menghasilkan lebih banyak jenis plot; *Treemap*, *animation*, *waffle chart*, dan masih banyak lagi.
+
+```{r load-ggplot2}
+library(ggplot2)
+#diamonds <- diamonds[1:1000,]
+diamonds
+```
+
+Data `diamonds` -- data *built in* dari paket ggplot2 -- digunakan sebagai contoh.
+Terdapat beberapa variabel dalam data diamond, diantaranya
+
++ *carat*       : berat dari berlian
++ *cut*         : kualitas potongan
++ *color*       : Warna berlian, dari J (terburuk) ke D (terbaik)
++ *clarity*     : Ukuran seberapa jernih suatu berlian
++ *depth*       : persentase kedalaman
++ *table*       : lebar dari ujung atas berlian relatif terhadap titik terlebar
++ *price*       : harga berlian dalam USD.
++ *x*           : panjang dalam milimeter
++ *y*           : lebar dalam milimeter
++ *x*           : kedalaman dalam milimeter
+
+Informasi lainnya mengendai data `diamonds` dapat dilihat dengan mengetik `?diamonds` pada *console*.
+Misalkan kita ingin mengetahui sebaran dari harga berlian.
+Dengan menggunakan informasi yang tersedia, kita dapat mengidentifikasi lapisan *data*, *aesthetics*, dan *geom* untuk gambar yang kita butuhkan.
+
+1. data : diamonds
+2. aes  :  price
+3. geom : histogram
+
+Dengan begitu, kita hanya perlu menyuruh R untuk membuat gambar.
+
+```{r gg-diamonds}
+ggdiamonds <- ggplot(data = diamonds, aes(x = price)) +
+        geom_histogram()
+
+ggdiamonds
+```
+
+Pada fungsi `aes()`, kita memasukkan sumbu x sebab kita hanya memerlukan 1 sumbu.
+Contoh berikutnya adalah menggunakan 2 sumbu. Misalkan kita ingin melihat pola antara harga (*price*) dan kualitas potongan dari berlian (*cut*).
+Arinyta kita akan membuat *scatter plot* antara `price`  dan `cut`.
+Selama kita dapat mengidentifikasi lapisan yang diperlukan:
+
+1. data : diamonds
+2. aes  : (x = price, y = cut)
+3. geom : point
+
+Akan tetapi, kita juga ingin melihat pola antara harga har dan kualitas potongan, dan juga warna.
+Oleh karena itu, kita membuatuhkan satu *aesthetic* lagi pada goem point.
+
+```{r scatter-plot}
+ggprice <- ggplot(data = diamonds, aes(x = price, y = carat)) +
+        geom_point(aes(colour = color))
+
+ggprice
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
