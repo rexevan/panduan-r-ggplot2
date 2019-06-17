@@ -16,7 +16,7 @@ description: "Panduan menggunakan hal-hal dasar R dan ggplot2"
 ```{r setup, include=FALSE}
 library(knitr)
 library(here)
-opts_chunk$set(echo = TRUE)
+opts_chunk$set(echo = TRUE, out.width = "90%", fig.align = "center")
 
 
 knitr::write_bib(c(
